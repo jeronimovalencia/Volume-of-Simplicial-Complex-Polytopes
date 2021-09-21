@@ -1,0 +1,52 @@
+\documentclass[english]{article}
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo,amsmath,amssymb,subcaption,graphicx,amsthm} 
+\usepackage[backend=bibtex,style=numeric-comp,natbib=true]{biblatex} 
+\usepackage{xcolor}
+\addbibresource{references.bib}
+
+\title{Preproject}
+\author{Eliana Tolosa Villarreal and Jerónimo Valencia}
+\date{October 2020}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\theoremstyle{definition}
+\newtheorem{proposition}{Proposition}[section]
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\begin{document}
+\maketitle
+
+Given a graph $G$ with $n$ vertices, we can associate a zonotope $Z_G$ in $\mathbb{R}^n$ given by the Minkowski sum of segments indexed by the edges of such graph. Explicitly, $$Z_G = \sum_{\{ij\}\in\text{E}(G)}\left[\vec{e}_i,\vec{e}_j\right] = \sum_{\{ij\}\in\text{E}(G)}\left[0,\vec{e}_i-\vec{e}_j\right]$$
+where $\left\{\vec{e}_i \ | \ 1\leq i\leq n \right\}$ is the canonical basis for $\mathbb{R}^n$. For these polytopes the following proposition describes a combinatorial formula for computing its volume. 
+
+\begin{proposition}
+\cite[Proposition 2.4]{Postnikov-PAB} For a connected graph $G$ on $n$ vertices, the volume of $Z_G$ equals the number of spanning trees of $G$. 
+\end{proposition}
+
+The proof of this proposition relies on a particular subdivision, which can be done to any zonotope, into smaller zonotopes \cite{beck2008computing}. 
+
+Now, if we consider a simplicial complex $\Gamma$ such that $|\Gamma^{(0)}|=n$, a polytope $Z_\Gamma$ in $\mathbb{R}^n$ analogous to the graphical zonotope can be considered as follows. If $F\in\Gamma$ is a face of dimension $k$, we define $\Delta_F \subset \mathbb{R}^n$ as the convex hull of vectors indexed by elements of $F$. Then, $$Z_\Gamma := \sum_{F\in\Gamma}\Delta_F$$
+
+This construction generalizes the above polytope because in the case $\Gamma$ is a graph, $Z_\Gamma$ is a translate of the graphical zonotope by a vector $\vec{v} = \sum_{i\in \Gamma^{(0)}}\vec{e}_i$. 
+
+The purpose of our project is to try to compute the volume of these simplicial complex polytopes combinatorially and therefore to generalize the proposition mentioned above for graphical zonotopes.
+
+In order to approach this computation we will study subdivisions and zonotopes (from the cited references). Given the case that we do not get to a general result, the project will turn into a survey on graphical zonotopes, in which we will show some computations of volumes as examples. In that case, we could also focus in a smaller family of polytopes to which a volume could be computed.
+
+Each week we will set tasks to do. We will have a weekly meeting to discuss our progress. We will write the paper collaboratively, having in mind our individual strengths.
+
+
+\nocite{*}
+
+\printbibliography
+
+\end{document}
